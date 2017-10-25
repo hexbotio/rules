@@ -1,0 +1,16 @@
+{
+  "rule": "Deploy Web",
+  "match": "deploy web",
+  "url": "/github/hex-web",
+  "channel": "#builds",
+  "format": true,
+  "actions": [
+    { "type": "hex-local", "command": "env", "hide_output": true, "config": { 
+        "env": "PATH=/bin:/usr/bin",
+        "dir": "${hex.var.web}"
+      }
+    },
+    { "type": "hex-local", "command": "echo Deploying; git pull", "last_config": true },
+    { "type": "hex-response", "command": "Push by: ${hex.input.json:sender.login}", "run_on_fail": true }
+  ]
+}

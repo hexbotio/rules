@@ -1,0 +1,11 @@
+{
+  "rule": "apt-check",
+  "match": "apt-check",
+  "format": true,
+  "output_fail_only": true,
+  "schedule": "0 0 */1 * * *",
+  "channel": "#alerts",
+  "actions": [
+    { "type": "hex-local", "command": "/usr/lib/nagios/plugins/check_apt" }
+  ]
+}

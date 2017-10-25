@@ -1,0 +1,16 @@
+{
+  "rule": "Deploy Latest",
+  "match": "deploy latest*",
+  "format": true,
+  "acl": "matt",
+  "help": "deploy latest <build #>",
+  "actions": [
+    { "type": "hex-local", "command": "env", "config": { 
+        "env": "PATH=/bin:/usr/bin",
+        "dir": "/tmp"
+      }, "hide_output": true
+    },
+    { "type": "hex-local", "command": "echo ${hex.input.2} > ${hex.var.downloads}latest", "hide_output": true },
+    { "type": "hex-response", "command": "Setting latest to: ${hex.input.2}" }
+  ]
+}

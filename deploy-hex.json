@@ -1,0 +1,35 @@
+{
+  "rule": "Deploy Hex",
+  "match": "deploy hex*",
+  "format": true,
+  "acl": "matt",
+  "help": "deploy hex <build #>",
+  "actions": [
+    { "type": "hex-local", "command": "env", "config": { 
+        "env": "GOPATH=/tmp/build/${hex.id}; GOBIN=/tmp/build/${hex.id}/bin; PATH=/bin:/usr/bin:/usr/local/go/bin/",
+        "dir": "/tmp/build"
+      }, "hide_output": true
+    },
+    { "type": "hex-local", "command": "mkdir -p /tmp/build/${hex.id}", "last_config": true, "hide_output": true },
+    { "type": "hex-local", "command": "echo Pulling hex; go get -d github.com/hexbotio/hex", "last_config": true },
+    { "type": "hex-local", "command": "echo Pulling hex-ssh; go get -d github.com/hexbotio/hex-ssh", "last_config": true },
+    { "type": "hex-local", "command": "echo Pulling hex-local; go get -d github.com/hexbotio/hex-local", "last_config": true },
+    { "type": "hex-local", "command": "echo Pulling hex-response; go get -d github.com/hexbotio/hex-response", "last_config": true },
+    { "type": "hex-local", "command": "echo Pulling hex-twilio; go get -d github.com/hexbotio/hex-twilio", "last_config": true },
+    { "type": "hex-local", "command": "echo Pulling hex-validate; go get -d github.com/hexbotio/hex-validate", "last_config": true },
+    { "type": "hex-local", "command": "echo Pulling hex-winrm; go get -d github.com/hexbotio/hex-winrm", "last_config": true },
+    { "type": "hex-local", "command": "echo Testing; go test github.com/hexbotio/hex/parse", "last_config": true },
+    { "type": "hex-local", "command": "echo Building hex; go install -ldflags \"-X main.version=${hex.input.2}\" github.com/hexbotio/hex", "last_config": true },
+    { "type": "hex-local", "command": "echo Building hex-ssh; go install github.com/hexbotio/hex-ssh", "last_config": true },
+    { "type": "hex-local", "command": "echo Building hex-local; go install github.com/hexbotio/hex-local", "last_config": true },
+    { "type": "hex-local", "command": "echo Building hex-response; go install github.com/hexbotio/hex-response", "last_config": true },
+    { "type": "hex-local", "command": "echo Building hex-twilio; go install github.com/hexbotio/hex-twilio", "last_config": true },
+    { "type": "hex-local", "command": "echo Building hex-validate; go install github.com/hexbotio/hex-validate", "last_config": true },
+    { "type": "hex-local", "command": "echo Building hex-winrm; go install github.com/hexbotio/hex-winrm", "last_config": true },
+    { "type": "hex-local", "command": "mkdir -p ${hex.var.downloads}${hex.input.2}", "last_config": true, "hide_output": true },
+    { "type": "hex-local", "command": "cp $GOBIN/* ${hex.var.downloads}${hex.input.2}/", "last_config": true, "hide_output": true },
+    { "type": "hex-local", "command": "for f in ${hex.var.downloads}${hex.input.2}/*; do md5sum $f | awk '{print $1}' > $f.md5; done", "run_on_fail": true, "hide_output": true },
+    { "type": "hex-local", "command": "rm -rf /tmp/build/${hex.id}", "run_on_fail": true, "hide_output": true },
+    { "type": "hex-response", "command": "Deploy to Downloads for ${hex.input.2}" }
+  ]
+}

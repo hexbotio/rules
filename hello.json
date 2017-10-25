@@ -1,0 +1,7 @@
+{
+  "rule": "hello",
+  "match": "hello",
+  "actions": [
+    { "type": "hex-response", "command": "Hello ${hex.user}!" }
+  ]
+}
