@@ -11,6 +11,6 @@
       }
     },
     { "type": "hex-local", "command": "echo Deploying; git pull", "last_config": true },
-    { "type": "hex-response", "command": "Push by: ${hex.input.json:sender.login}", "run_on_fail": true }
+    { "type": "hex-response", "command": "Push by: ${hex.input.json:sender.login} ${hex.input.json:head_commit.message}", "run_on_fail": true }
   ]
 }
