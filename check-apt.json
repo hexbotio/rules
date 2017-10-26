@@ -1,6 +1,5 @@
 {
-  "rule": "apt-check",
-  "match": "apt-check",
+  "rule": "check-apt",
   "format": true,
   "output_on_change": true,
   "schedule": "0 0 */1 * * *",
