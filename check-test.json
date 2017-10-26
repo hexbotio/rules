@@ -1,6 +1,7 @@
 {
   "rule": "check-test",
   "format": true,
+  "match": "check test",
   "output_on_change": true,
   "schedule": "0 * * * * *",
   "channel": "#alerts",
