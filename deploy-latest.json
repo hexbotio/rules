@@ -10,7 +10,7 @@
         "dir": "/tmp"
       }, "hide_output": true
     },
-    { "type": "local", "command": "echo ${hex.input.2} > ${hex.var.downloads}latest", "hide_output": true },
-    { "type": "response", "command": "Setting latest to: ${hex.input.2}" }
+    { "type": "local", "command": "echo ${hex.input.3} > ${hex.var.downloads}latest", "hide_output": true },
+    { "type": "response", "command": "Setting latest to: ${hex.input.3}" }
   ]
 }
