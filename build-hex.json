@@ -1,6 +1,6 @@
 {
   "rule": "Build Hex",
-  "match": "build hex",
+  "match": "@hex build hex",
   "url": "/github/hex",
   "channel": "#builds",
   "format": true,

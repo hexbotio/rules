@@ -5,6 +5,6 @@
   "schedule": "0 * * * * *",
   "channel": "#alerts",
   "actions": [
-    { "type": "hex-local", "command": "/usr/lib/nagios/plugins/check_procs -C nginx -c 1:" }
+    { "type": "local", "command": "/usr/lib/nagios/plugins/check_procs -C nginx -c 1:" }
   ]
 }

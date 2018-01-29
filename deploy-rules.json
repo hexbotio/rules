@@ -1,16 +1,16 @@
 {
   "rule": "Deploy Rules",
-  "match": "deploy rules",
+  "match": "@hex deploy rules",
   "url": "/github/hex-rules",
   "channel": "#builds",
   "format": true,
   "actions": [
-    { "type": "hex-local", "command": "env", "hide_output": true, "config": { 
+    { "type": "local", "command": "env", "hide_output": true, "config": { 
         "env": "PATH=/bin:/usr/bin",
         "dir": "${hex.var.rules}"
       }
     },
-    { "type": "hex-local", "command": "echo Deploying; git pull", "last_config": true },
-    { "type": "hex-response", "command": "Push by: ${hex.input.json:sender.login} ${hex.input.json:head_commit.message}", "run_on_fail": true }
+    { "type": "local", "command": "echo Deploying; git pull", "last_config": true },
+    { "type": "response", "command": "Push by: ${hex.input.json:sender.login} ${hex.input.json:head_commit.message}", "run_on_fail": true }
   ]
 }

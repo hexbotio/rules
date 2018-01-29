@@ -5,6 +5,6 @@
   "schedule": "0 0 * * * *",
   "channel": "#alerts",
   "actions": [
-    { "type": "hex-local", "command": "/usr/lib/nagios/plugins/check_apt" }
+    { "type": "local", "command": "/usr/lib/nagios/plugins/check_apt" }
   ]
 }
