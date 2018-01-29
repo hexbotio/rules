@@ -19,17 +19,17 @@
     { "type": "local", "command": "echo Pulling hex-validate; go get -d github.com/hexbotio/hex-validate", "last_config": true },
     { "type": "local", "command": "echo Pulling hex-winrm; go get -d github.com/hexbotio/hex-winrm", "last_config": true },
     { "type": "local", "command": "echo Testing; go test github.com/hexbotio/hex/parse", "last_config": true },
-    { "type": "local", "command": "echo Building hex; go install -ldflags \"-X main.version=${hex.input.2}\" github.com/hexbotio/hex", "last_config": true },
+    { "type": "local", "command": "echo Building hex; go install -ldflags \"-X main.version=${hex.input.3}\" github.com/hexbotio/hex", "last_config": true },
     { "type": "local", "command": "echo Building hex-ssh; go install github.com/hexbotio/hex-ssh", "last_config": true },
     { "type": "local", "command": "echo Building hex-local; go install github.com/hexbotio/hex-local", "last_config": true },
     { "type": "local", "command": "echo Building hex-response; go install github.com/hexbotio/hex-response", "last_config": true },
     { "type": "local", "command": "echo Building hex-twilio; go install github.com/hexbotio/hex-twilio", "last_config": true },
     { "type": "local", "command": "echo Building hex-validate; go install github.com/hexbotio/hex-validate", "last_config": true },
     { "type": "local", "command": "echo Building hex-winrm; go install github.com/hexbotio/hex-winrm", "last_config": true },
-    { "type": "local", "command": "mkdir -p ${hex.var.downloads}${hex.input.2}", "last_config": true, "hide_output": true },
-    { "type": "local", "command": "cp $GOBIN/* ${hex.var.downloads}${hex.input.2}/", "last_config": true, "hide_output": true },
-    { "type": "local", "command": "for f in ${hex.var.downloads}${hex.input.2}/*; do md5sum $f | awk '{print $1}' > $f.md5; done", "run_on_fail": true, "hide_output": true },
+    { "type": "local", "command": "mkdir -p ${hex.var.downloads}${hex.input.3}", "last_config": true, "hide_output": true },
+    { "type": "local", "command": "cp $GOBIN/* ${hex.var.downloads}${hex.input.3}/", "last_config": true, "hide_output": true },
+    { "type": "local", "command": "for f in ${hex.var.downloads}${hex.input.3}/*; do md5sum $f | awk '{print $1}' > $f.md5; done", "run_on_fail": true, "hide_output": true },
     { "type": "local", "command": "rm -rf /tmp/build/${hex.id}", "run_on_fail": true, "hide_output": true },
-    { "type": "response", "command": "Deploy to Downloads for ${hex.input.2}" }
+    { "type": "response", "command": "Deploy to Downloads for ${hex.input.3}" }
   ]
 }
