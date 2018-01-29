@@ -3,7 +3,7 @@
   "match": "@hex deploy latest*",
   "format": true,
   "acl": "matt",
-  "help": "deploy latest <build #>",
+  "help": "@hex deploy latest <build #>",
   "actions": [
     { "type": "local", "command": "env", "config": { 
         "env": "PATH=/bin:/usr/bin",

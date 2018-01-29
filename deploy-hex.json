@@ -3,7 +3,7 @@
   "match": "@hex deploy hex*",
   "format": true,
   "acl": "matt",
-  "help": "deploy hex <build #>",
+  "help": "@hex deploy hex <build #>",
   "actions": [
     { "type": "local", "command": "env", "config": { 
         "env": "GOPATH=/tmp/build/${hex.id}; GOBIN=/tmp/build/${hex.id}/bin; PATH=/bin:/usr/bin:/usr/local/go/bin/",
