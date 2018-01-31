@@ -1,0 +1,7 @@
+{
+  "match": "*service fabric*",
+  "hide": true,
+  "actions": [
+    { "type": "response", "command": "Service Fabric is a forbidden term here." }
+  ]
+}
