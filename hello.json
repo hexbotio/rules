@@ -2,6 +2,6 @@
   "rule": "hello",
   "match": "@hex hello",
   "actions": [
-    { "type": "response", "command": "Hello ${hex.user}!" }
+    { "type": "response", "command": "Hello, ${hex.user}!" }
   ]
 }
